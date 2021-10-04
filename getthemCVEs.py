@@ -16,7 +16,7 @@ And writes to new csv file
 
 0. pip install shodan
 1. Assuming shodan data files have been obtained
-2. python3 parse-shodan-cve-data.py <directory>
+2. python3 getthemCVEs.py <directory>
 '''
 
 csv_out = []
