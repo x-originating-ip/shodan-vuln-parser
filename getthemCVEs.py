@@ -46,21 +46,21 @@ def parse_shodan_file(fname):
                 references = ", ".join(ref)
                 '''
                 print("\nIP: {},".format(ip))
-                print("SSL Subject CN: {},".format(ssl1)
+                print("SSL: {},".format(ssl)
                 print("CVE: {},".format(v))
                 print("Verified: {},".format(verified))
                 print("CVSS: {},".format(cvss))
                 print("Summary: {},".format(summary))
                 print("References: {}".format(references))
                 '''
-                csv_out.append([ip,",",ssl1,",",cve,",",verified,",",cvss,",",summary,",",references])
+                csv_out.append([ip,",",ssl,",",cve,",",verified,",",cvss,",",summary,",",references])
 
 def write_csv():
     fname = "cves-{}.csv".format(datetime.datetime.now().strftime("%Y%m%dT%H%M%S%f"))
     with open(fname, 'w') as csvfile:
         writer = csv.writer(csvfile, delimiter='\t')
 
-        writer.writerow(["IP\t,SSL Subject CN\t,CVE\t,Verified\t,CVSS\t,Summary\,tReferences"])
+        writer.writerow(["IP\t,SSL Subject CN\t,CVE\t,Verified\t,CVSS\t,Summary\t,References"])
         for line in csv_out:
             line = "\t".join([str(e) for e in line])
             writer.writerow([line])
